@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:minHeight="58dp"
+    android:background="@android:color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="6dp">
+
+
+    <!-- Horizontal Container (Simulating LinearLayout) -->
+    <RelativeLayout
+        android:id="@+id/icon_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingHorizontal="6dp">
+
+        <!-- Search Icon (Left) -->
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_search" />
+
+        <!-- Mic Icon (Right) -->
+        <ImageView
+            android:id="@+id/iv_mic"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_mic" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
