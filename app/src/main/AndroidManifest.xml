@@ -4,6 +4,8 @@
     package="com.example.searchwidget"> <!-- Replace with your actual package name -->
 
     <application
+        android:label="Search Widget"
+        android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"> <!-- Ensure this points to a valid theme -->
 

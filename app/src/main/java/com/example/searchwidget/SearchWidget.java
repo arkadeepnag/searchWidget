@@ -10,11 +10,8 @@ import android.graphics.Color;
 import android.widget.RemoteViews;
 
 public class SearchWidget extends AppWidgetProvider {
-    private static final String ACTION_CLICK = "ACTION_CLICK";
-
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
         SharedPreferences prefs = context.getSharedPreferences("WidgetPrefs_" + appWidgetId, Context.MODE_PRIVATE);
-
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         applySettings(context, views, prefs);
 
@@ -41,14 +38,13 @@ public class SearchWidget extends AppWidgetProvider {
 
     private static void applySettings(Context context, RemoteViews views, SharedPreferences prefs) {
         int bgColor = prefs.getInt("bg_color", Color.WHITE);
-        int radius = prefs.getInt("radius", 20);
         int transparency = prefs.getInt("transparency", 255);
         int iconColor = prefs.getInt("icon_color", Color.BLACK);
 
         // Adjust transparency
         bgColor = Color.argb(transparency, Color.red(bgColor), Color.green(bgColor), Color.blue(bgColor));
 
-        // Set the background color directly (GradientDrawable doesn't work in RemoteViews)
+        // Set the background color
         views.setInt(R.id.widget_container, "setBackgroundColor", bgColor);
 
         // Apply icon color
@@ -61,10 +57,5 @@ public class SearchWidget extends AppWidgetProvider {
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
-    }
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
     }
 }
